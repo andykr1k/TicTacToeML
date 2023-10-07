@@ -1,5 +1,4 @@
 from game import *
-from nn import *
 
 def main():
     # x, y = GetData()

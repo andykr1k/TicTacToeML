@@ -15,7 +15,7 @@ class TicTacToe:
             r = int(input("Row: "))
             c = int(input("Col: "))
         self.ChangeLegalMoves(r,c)
-    
+
     def AI(self):
         best_score = float('-inf')
         best_move = None
@@ -79,7 +79,7 @@ class TicTacToe:
 
         if not any(0 in row for row in self.board):
             return 'Draw!'
-        
+
         return 'No winner yet'
 
     def ChangeTurn(self):

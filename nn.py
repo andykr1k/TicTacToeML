@@ -38,7 +38,7 @@ def train_model(model, X_train, y_train, X_test, y_test):
     test_loss, test_accuracy = model.evaluate(X_test, y_test)
     return test_loss, test_accuracy
 
-def make_move(model, board, legal_moves):    
+def make_move(model, board, legal_moves):
     flattened_board = board.flatten()
 
     predictions = model.predict(np.array([flattened_board]))
@@ -61,7 +61,7 @@ def minimax(self, depth, maximizing):
     if self.CheckForWin():
         winner = self.CheckForWinner()
         return scores[winner]
-    
+
     if maximizing:
         best_score = float('-inf')
         for i in range(len(self.board)):

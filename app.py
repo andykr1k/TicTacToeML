@@ -1,7 +1,5 @@
 import streamlit as st
 from game import *
-from nn import *
-import numpy as np
 
 def init_game():
     game = TicTacToe()
