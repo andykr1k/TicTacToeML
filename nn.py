@@ -54,3 +54,31 @@ def make_move(model, board, legal_moves):
     col = move_index % 3
     print(row, col)
     return int(row), int(col)
+
+def minimax(self, depth, maximizing):
+    scores = {'X wins': -1, 'O wins': 1, 'Draw!': 0}
+
+    if self.CheckForWin():
+        winner = self.CheckForWinner()
+        return scores[winner]
+    
+    if maximizing:
+        best_score = float('-inf')
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                if self.board[i][j] == 0:
+                    self.board[i][j] = -1
+                    score = minimax(self, depth + 1, False)
+                    self.board[i][j] = 0
+                    best_score = max(score, best_score)
+        return best_score
+    else:
+        best_score = float('inf')
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                if self.board[i][j] == 0:
+                    self.board[i][j] = 1
+                    score = minimax(self, depth + 1, True)
+                    self.board[i][j] = 0
+                    best_score = min(score, best_score)
+        return best_score
